@@ -16,4 +16,4 @@ CPRMS是基于mvc架构,，，使用jsp开发的会议论文评审系统<br>
 3.显示对某一篇论文的评审结果。一名程序委员会成员只能看到他/她自己的评审结果。<br>
 4.向一篇论文添加一条讨论。一名程序委员只能向他/她所评审的论文添加讨论。<br>
 5.显示论文的讨论内容。一名程序委员会成员只能看到与他/她所评审的论文相关的讨论。<br>
-![image](http://github.com/Blacklth/CPRMS/raw/master/images/home.png)
+![image](https://github.com/Blacklth/CPRMS/blob/master/home.png)
