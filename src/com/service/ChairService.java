@@ -81,57 +81,57 @@ public class ChairService {
 	        	}
 			}
 			
-		   // ÊÕ¼şÈËµÄµç×ÓÓÊ¼ş
+		   // æ”¶ä»¶äººçš„ç”µå­é‚®ä»¶
 			String to = conAuthor.getEmail();
 
-		   // ·¢¼şÈËµÄµç×ÓÓÊ¼ş
+		   // å‘ä»¶äººçš„ç”µå­é‚®ä»¶
 			String from = "201630665021@mail.scut.edu.cn";
-		   // ¼ÙÉèÄãÊÇ´Ó±¾µØÖ÷»ú·¢ËÍµç×ÓÓÊ¼ş
+		   // å‡è®¾ä½ æ˜¯ä»æœ¬åœ°ä¸»æœºå‘é€ç”µå­é‚®ä»¶
 		   String host = "localhost";
 
-		   // »ñÈ¡ÏµÍ³ÊôĞÔ¶ÔÏó
+		   // è·å–ç³»ç»Ÿå±æ€§å¯¹è±¡
 		   Properties properties = System.getProperties();
 		   
-		   properties.setProperty("mail.user", "201630665021@mail.scut.edu.cn");
-		   properties.setProperty("mail.password", "Liao981210");
-		   // ÉèÖÃÓÊ¼ş·şÎñÆ÷
+		   properties.setProperty("mail.user", "xxx@xxx.com");
+		   properties.setProperty("mail.password", "xxxxx");
+		   // è®¾ç½®é‚®ä»¶æœåŠ¡å™¨
 		   properties.setProperty("mail.smtp.host", host);
-		   // »ñÈ¡Ä¬ÈÏµÄSession¶ÔÏó¡£
+		   // è·å–é»˜è®¤çš„Sessionå¯¹è±¡ã€‚
 		   Session mailSession = Session.getDefaultInstance(properties);
 		   try{
-		      // ´´½¨Ò»¸öÄ¬ÈÏµÄMimeMessage¶ÔÏó¡£
+		      // åˆ›å»ºä¸€ä¸ªé»˜è®¤çš„MimeMessageå¯¹è±¡ã€‚
 		      MimeMessage message = new MimeMessage(mailSession);
-		      // ÉèÖÃ From: Í·²¿µÄheader×Ö¶Î
+		      // è®¾ç½® From: å¤´éƒ¨çš„headerå­—æ®µ
 		      message.setFrom(new InternetAddress(from));
-		      // ÉèÖÃ To: Í·²¿µÄheader×Ö¶Î
+		      // è®¾ç½® To: å¤´éƒ¨çš„headerå­—æ®µ
 		      message.addRecipient(Message.RecipientType.TO,
 		                               new InternetAddress(to));
-		      // ÉèÖÃ Subject: header×Ö¶Î
-		      message.setSubject("ÂÛÎÄÍ¨Öªº¯");
-		      // ÏÖÔÚÉèÖÃµÄÊµ¼ÊÏûÏ¢
-		      String text = "×ğ¾´µÄ"+conAuthor.getName()+"£º\r\n" + 
+		      // è®¾ç½® Subject: headerå­—æ®µ
+		      message.setSubject("è®ºæ–‡é€šçŸ¥å‡½");
+		      // ç°åœ¨è®¾ç½®çš„å®é™…æ¶ˆæ¯
+		      String text = "å°Šæ•¬çš„"+conAuthor.getName()+"ï¼š\r\n" + 
 		      		"\r\n" + 
-		      		"IFIP 2.6µÄ»áÒé³ÌĞòÎ¯Ô±»áÊÕµ½ÁËÀ´×ÔÈ«ÊÀ½çµÄ¶àÆªÂÛÎÄÌá½»¡£Òò´Ë£¬ÎÒÃÇ±ØĞëÔÚĞí¶àÓÅĞãµÄÌá½»ÖĞ×ö³ö¾ö¶¨¡£ºÜÈÙĞÒÍ¨ÖªÄú£¬ÄúµÄÂÛÎÄ¡¶"+paper.getTitle()+"¡· ±àºÅ"+paper.getPaper_number()+"ÒÑ±»±¾»áÒé½ÓÊÕ¡£ \r\n" + 
+		      		"IFIP 2.6çš„ä¼šè®®ç¨‹åºå§”å‘˜ä¼šæ”¶åˆ°äº†æ¥è‡ªå…¨ä¸–ç•Œçš„å¤šç¯‡è®ºæ–‡æäº¤ã€‚å› æ­¤ï¼Œæˆ‘ä»¬å¿…é¡»åœ¨è®¸å¤šä¼˜ç§€çš„æäº¤ä¸­åšå‡ºå†³å®šã€‚å¾ˆè£å¹¸é€šçŸ¥æ‚¨ï¼Œæ‚¨çš„è®ºæ–‡ã€Š"+paper.getTitle()+"ã€‹ ç¼–å·"+paper.getPaper_number()+"å·²è¢«æœ¬ä¼šè®®æ¥æ”¶ã€‚ \r\n" + 
 		      		"\r\n" + 
-		      		"½÷ÖÂÎÊºò \r\n" + 
+		      		"è°¨è‡´é—®å€™ \r\n" + 
 		      		"\r\n" + 
 		      		"Fred Lochovsky \r\n" + 
-		      		"³ÌĞòÎ¯Ô±»áÖ÷Ï¯ ";
+		      		"ç¨‹åºå§”å‘˜ä¼šä¸»å¸­ ";
 		      //message.setText(text);
 
-		   // ´´½¨ÏûÏ¢²¿·Ö
+		   // åˆ›å»ºæ¶ˆæ¯éƒ¨åˆ†
 		      BodyPart messageBodyPart = new MimeBodyPart();
 
-		      // Ìî³äÏûÏ¢
+		      // å¡«å……æ¶ˆæ¯
 		      messageBodyPart.setText(text);
 		      
-		      // ´´½¨¶àÃ½ÌåÏûÏ¢
+		      // åˆ›å»ºå¤šåª’ä½“æ¶ˆæ¯
 		      Multipart multipart = new MimeMultipart();
 
-		      // ÉèÖÃÎÄ±¾ÏûÏ¢²¿·Ö
+		      // è®¾ç½®æ–‡æœ¬æ¶ˆæ¯éƒ¨åˆ†
 		      multipart.addBodyPart(messageBodyPart);
 
-		      // ¸½¼ş²¿·Ö
+		      // é™„ä»¶éƒ¨åˆ†
 		      messageBodyPart = new MimeBodyPart();
 		      
 		      if(reportList != null )
@@ -157,9 +157,9 @@ public class ChairService {
 			    	  writer.close();
 			    	  BodyPart bp = new MimeBodyPart();
 			    	  String filename = "report"+k+".html";
-			            // µÃµ½Êı¾İÔ´  
+			            // å¾—åˆ°æ•°æ®æº  
 			            FileDataSource fds = new FileDataSource(file);  
-			            // µÃµ½¸½¼ş±¾Éí²¢ÖÁÈëBodyPart  
+			            // å¾—åˆ°é™„ä»¶æœ¬èº«å¹¶è‡³å…¥BodyPart  
 			            bp.setDataHandler(new DataHandler(fds));  
 			            bp.setFileName(filename);  
 			            multipart.addBodyPart(bp);
@@ -209,57 +209,57 @@ public class ChairService {
 	        	}
 			}
 			
-		   // ÊÕ¼şÈËµÄµç×ÓÓÊ¼ş
+		   // æ”¶ä»¶äººçš„ç”µå­é‚®ä»¶
 			String to = conAuthor.getEmail();
 
-		   // ·¢¼şÈËµÄµç×ÓÓÊ¼ş
+		   // å‘ä»¶äººçš„ç”µå­é‚®ä»¶
 			String from = "201630665021@mail.scut.edu.cn";
-		   // ¼ÙÉèÄãÊÇ´Ó±¾µØÖ÷»ú·¢ËÍµç×ÓÓÊ¼ş
+		   // å‡è®¾ä½ æ˜¯ä»æœ¬åœ°ä¸»æœºå‘é€ç”µå­é‚®ä»¶
 		   String host = "localhost";
 
-		   // »ñÈ¡ÏµÍ³ÊôĞÔ¶ÔÏó
+		   // è·å–ç³»ç»Ÿå±æ€§å¯¹è±¡
 		   Properties properties = System.getProperties();
 		   
 		   properties.setProperty("mail.user", "201630665021@mail.scut.edu.cn");
 		   properties.setProperty("mail.password", "Liao981210");
-		   // ÉèÖÃÓÊ¼ş·şÎñÆ÷
+		   // è®¾ç½®é‚®ä»¶æœåŠ¡å™¨
 		   properties.setProperty("mail.smtp.host", host);
-		   // »ñÈ¡Ä¬ÈÏµÄSession¶ÔÏó¡£
+		   // è·å–é»˜è®¤çš„Sessionå¯¹è±¡ã€‚
 		   Session mailSession = Session.getDefaultInstance(properties);
 		   try{
-		      // ´´½¨Ò»¸öÄ¬ÈÏµÄMimeMessage¶ÔÏó¡£
+		      // åˆ›å»ºä¸€ä¸ªé»˜è®¤çš„MimeMessageå¯¹è±¡ã€‚
 		      MimeMessage message = new MimeMessage(mailSession);
-		      // ÉèÖÃ From: Í·²¿µÄheader×Ö¶Î
+		      // è®¾ç½® From: å¤´éƒ¨çš„headerå­—æ®µ
 		      message.setFrom(new InternetAddress(from));
-		      // ÉèÖÃ To: Í·²¿µÄheader×Ö¶Î
+		      // è®¾ç½® To: å¤´éƒ¨çš„headerå­—æ®µ
 		      message.addRecipient(Message.RecipientType.TO,
 		                               new InternetAddress(to));
-		      // ÉèÖÃ Subject: header×Ö¶Î
-		      message.setSubject("ÂÛÎÄÍ¨Öªº¯");
-		      // ÏÖÔÚÉèÖÃµÄÊµ¼ÊÏûÏ¢
-		      String text = "×ğ¾´µÄ"+conAuthor.getName()+"£º\r\n" + 
+		      // è®¾ç½® Subject: headerå­—æ®µ
+		      message.setSubject("è®ºæ–‡é€šçŸ¥å‡½");
+		      // ç°åœ¨è®¾ç½®çš„å®é™…æ¶ˆæ¯
+		      String text = "å°Šæ•¬çš„"+conAuthor.getName()+"ï¼š\r\n" + 
 		      		"\r\n" + 
-		      		"IFIP 2.6µÄ»áÒé³ÌĞòÎ¯Ô±»áÊÕµ½ÁËÀ´×ÔÈ«ÊÀ½çµÄ¶àÆªÂÛÎÄÌá½»¡£Òò´Ë£¬ÎÒÃÇ±ØĞëÔÚĞí¶àÓÅĞãµÄÌá½»ÖĞ×ö³ö¾ö¶¨¡£ºÜÒÅº¶µØÍ¨ÖªÄú£¬ÄúµÄÂÛÎÄ¡¶"+paper.getTitle()+"¡· ±àºÅ"+paper.getPaper_number()+"Î´±»±¾»áÒé½ÓÊÕ¡£ \r\n" + 
+		      		"IFIP 2.6çš„ä¼šè®®ç¨‹åºå§”å‘˜ä¼šæ”¶åˆ°äº†æ¥è‡ªå…¨ä¸–ç•Œçš„å¤šç¯‡è®ºæ–‡æäº¤ã€‚å› æ­¤ï¼Œæˆ‘ä»¬å¿…é¡»åœ¨è®¸å¤šä¼˜ç§€çš„æäº¤ä¸­åšå‡ºå†³å®šã€‚å¾ˆé—æ†¾åœ°é€šçŸ¥æ‚¨ï¼Œæ‚¨çš„è®ºæ–‡ã€Š"+paper.getTitle()+"ã€‹ ç¼–å·"+paper.getPaper_number()+"æœªè¢«æœ¬ä¼šè®®æ¥æ”¶ã€‚ \r\n" + 
 		      		"\r\n" + 
-		      		"½÷ÖÂÎÊºò \r\n" + 
+		      		"è°¨è‡´é—®å€™ \r\n" + 
 		      		"\r\n" + 
 		      		"Fred Lochovsky \r\n" + 
-		      		"³ÌĞòÎ¯Ô±»áÖ÷Ï¯ ";
+		      		"ç¨‹åºå§”å‘˜ä¼šä¸»å¸­ ";
 		      //message.setText(text);
 
-		   // ´´½¨ÏûÏ¢²¿·Ö
+		   // åˆ›å»ºæ¶ˆæ¯éƒ¨åˆ†
 		      BodyPart messageBodyPart = new MimeBodyPart();
 
-		      // Ìî³äÏûÏ¢
+		      // å¡«å……æ¶ˆæ¯
 		      messageBodyPart.setText(text);
 		      
-		      // ´´½¨¶àÃ½ÌåÏûÏ¢
+		      // åˆ›å»ºå¤šåª’ä½“æ¶ˆæ¯
 		      Multipart multipart = new MimeMultipart();
 
-		      // ÉèÖÃÎÄ±¾ÏûÏ¢²¿·Ö
+		      // è®¾ç½®æ–‡æœ¬æ¶ˆæ¯éƒ¨åˆ†
 		      multipart.addBodyPart(messageBodyPart);
 
-		      // ¸½¼ş²¿·Ö
+		      // é™„ä»¶éƒ¨åˆ†
 		      messageBodyPart = new MimeBodyPart();
 		      
 		      if(reportList != null )
@@ -285,9 +285,9 @@ public class ChairService {
 			    	  writer.close();
 			    	  BodyPart bp = new MimeBodyPart();
 			    	  String filename = "report"+k+".html";
-			            // µÃµ½Êı¾İÔ´  
+			            // å¾—åˆ°æ•°æ®æº  
 			            FileDataSource fds = new FileDataSource(file);  
-			            // µÃµ½¸½¼ş±¾Éí²¢ÖÁÈëBodyPart  
+			            // å¾—åˆ°é™„ä»¶æœ¬èº«å¹¶è‡³å…¥BodyPart  
 			            bp.setDataHandler(new DataHandler(fds));  
 			            bp.setFileName(filename);  
 			            multipart.addBodyPart(bp);
