@@ -85,7 +85,7 @@ public class ChairService {
 			String to = conAuthor.getEmail();
 
 		   // 发件人的电子邮件
-			String from = "201630665021@mail.scut.edu.cn";
+			String from = "xxx@xxx.com";
 		   // 假设你是从本地主机发送电子邮件
 		   String host = "localhost";
 
@@ -170,7 +170,7 @@ public class ChairService {
 		      
 		      
 		      Transport transport = mailSession.getTransport("smtp");
-		      transport.connect("smtp.mail.scut.edu.cn","201630665021@mail.scut.edu.cn","Liao981210");
+		      transport.connect("smtp.com","xxxx@xxx.com","xxxxx");
 		      transport.sendMessage(message,message.getAllRecipients());
 		      transport.close();
 		      
@@ -213,15 +213,15 @@ public class ChairService {
 			String to = conAuthor.getEmail();
 
 		   // 发件人的电子邮件
-			String from = "201630665021@mail.scut.edu.cn";
+			String from = "xxx@xxx.com";
 		   // 假设你是从本地主机发送电子邮件
 		   String host = "localhost";
 
 		   // 获取系统属性对象
 		   Properties properties = System.getProperties();
 		   
-		   properties.setProperty("mail.user", "201630665021@mail.scut.edu.cn");
-		   properties.setProperty("mail.password", "Liao981210");
+		   properties.setProperty("mail.user", "xxx@xxx.com");
+		   properties.setProperty("mail.password", "xxxx");
 		   // 设置邮件服务器
 		   properties.setProperty("mail.smtp.host", host);
 		   // 获取默认的Session对象。
@@ -298,7 +298,7 @@ public class ChairService {
 		      
 		      
 		      Transport transport = mailSession.getTransport("smtp");
-		      transport.connect("smtp.mail.scut.edu.cn","201630665021@mail.scut.edu.cn","Liao981210");
+		      transport.connect("smtp.com","xxx@xxx.com","xxxxxxxx");
 		      transport.sendMessage(message,message.getAllRecipients());
 		      transport.close();
 		      
